@@ -1,8 +1,3 @@
-"""
-Esta sería la clase vista. Contiene el ciclo de la aplicación y ensambla
-las llamadas para obtener el dibujo de la escena.
-"""
-
 from ast import Break
 import glfw
 import sys
@@ -56,7 +51,7 @@ if __name__ == '__main__':
 
     t0 = 0
     espacio_tuberias=0
-    while not glfw.window_should_close(window):  # Dibujando --> 1. obtener el input
+    while not glfw.window_should_close(window):
 
         # Calculamos el dt
         ti = glfw.get_time()
@@ -64,22 +59,20 @@ if __name__ == '__main__':
         t0 = ti
 
         # Using GLFW to check for input events
-        glfw.poll_events()  # OBTIENE EL INPUT --> CONTROLADOR --> MODELOS
+        glfw.poll_events()  
 
         # Clearing the screen in both, color and depth
         glClear(GL_COLOR_BUFFER_BIT)
-        espacio_tuberias+=1
 
-        
-        
+
+        espacio_tuberias+=1
         if espacio_tuberias%1000==0:
             tubos.create_tubo(pipeline)
         
         tubos.update(0.5 * dt)
-          # 0.001
         kirby.update(dt)
-        # Reconocer la logica
-        kirby.tope()  # ---> RECORRER TODOS LOS HUEVOS
+
+        kirby.tope() 
         kirby.collide_down(tubos)
         kirby.collide_up(tubos)
         kirby.borrar(tubos)

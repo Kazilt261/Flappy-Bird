@@ -10,7 +10,7 @@ from typing import Optional
 
 
 class Controller(object):
-    model: Optional['Kirby']  # Con esto queremos decir que el tipo de modelo es 'Chansey' (nuestra clase) ó None
+    model: Optional['Kirby'] 
     eggs: Optional['Tubo_Creator']
 
     def __init__(self):
